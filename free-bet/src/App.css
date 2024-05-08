@@ -1,9 +1,24 @@
 .games {
   margin: auto;
-  background-color: blue;
   height: 700px;
   width: 400px;
-  color: white;
   display: flex;
   flex-direction: column;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.match-card-container {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.bet-button:hover {
+  cursor: pointer;
+}
+
+.logo {
+  background-size: contain;
+  height: 20px;
+  width: 20px;
 }

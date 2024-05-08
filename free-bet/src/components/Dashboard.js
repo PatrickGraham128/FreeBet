@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import api from './api'
+import { MatchCard } from './MatchCard';
 
 export const Dashboard = () => {
   const [matches, setMatches] = useState([])
@@ -11,12 +12,14 @@ export const Dashboard = () => {
   useEffect(() => {
     fetchInfo().then(res => {
       setMatches(res.data.matches)
-      console.log(res.data.matches[0])
     })
   }, []);
 
   return (<>
     <div className='games'>
+      {
+        matches.map((m, i) => <MatchCard match={m} />)
+      }
     </div>
   </>)
 }
