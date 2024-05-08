@@ -1,0 +1,9 @@
+.games {
+  margin: auto;
+  background-color: blue;
+  height: 700px;
+  width: 400px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
