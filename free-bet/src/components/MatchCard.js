@@ -22,22 +22,23 @@ const logos = {
 }
 
 export const MatchCard = ({match}) => {
-  console.log(logos['Greater Western Sydney'])
+  const team1 = Object.keys(match)[1];
+  const team2 = Object.keys(match)[2];
   return (
     <div className='match-card-container'>
-      <div style={{display: 'flex', justifyContent: 'space-between', margin: '10px'}}>
+      <div style={{display: 'flex', justifyContent: 'space-between', margin: '10px 10px 10px'}}>
         <div style={{display: 'flex', gap: '10px'}}>
-          <div className='logo' style={{backgroundImage: logos[Object.keys(match)[0]]}} />
-          <span>{Object.keys(match)[0]}</span>
+          <div className='logo' style={{backgroundImage: logos[team1]}} />
+          <span className='team-name'>{team1}</span>
         </div>
-        <button className='bet-button'>{match[Object.keys(match)[0]]}</button>
+        <button className='bet-button'>{match[team1]}</button>
       </div>
       <div style={{display: 'flex', justifyContent: 'space-between', margin: '10px'}}>
         <div style={{display: 'flex', gap: '10px'}}>
-          <div className='logo' style={{backgroundImage: logos[Object.keys(match)[1]]}} />
-          <span>{Object.keys(match)[1]}</span>
+          <div className='logo' style={{backgroundImage: logos[team2]}} />
+          <span className='team-name'>{team2}</span>
         </div>
-        <button className='bet-button'>{match[Object.keys(match)[1]]}</button>
+        <button className='bet-button'>{match[team2]}</button>
       </div>
     </div>
   )
