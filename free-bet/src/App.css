@@ -27,6 +27,7 @@ html, body {
   border-radius: 3px;
   background-color: rgb(224, 224, 224);
   font-weight: bold;
+  width: 50px;
 }
 
 .bet-button:hover {
@@ -69,4 +70,24 @@ html, body {
   height: 30px;
   width: 50px;
   margin: 25px 20px;
+}
+
+.player-card-container {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.players {
+  margin: auto;
+  height: 700px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.player-name {
+  width: 150px;
 }

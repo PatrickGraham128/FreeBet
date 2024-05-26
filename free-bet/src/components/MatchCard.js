@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 
 const logos = {
   'Adelaide': 'url(https://www.sportsbet.com.au/images/50_adelaide@2x-4c6eed5d8ac52ee3a295972b27a7e5e9.png)',
@@ -22,10 +23,13 @@ const logos = {
 }
 
 export const MatchCard = ({match}) => {
+  const navigate = useNavigate();
+
   const team1 = Object.keys(match)[1];
   const team2 = Object.keys(match)[2];
+
   return (
-    <div className='match-card-container'>
+    <div className='match-card-container' onClick={() => navigate(`/match/${Object.values(match)[0]}`)}>
       <div style={{display: 'flex', justifyContent: 'space-between', margin: '10px 10px 10px'}}>
         <div style={{display: 'flex', gap: '10px'}}>
           <div className='logo' style={{backgroundImage: logos[team1]}} />

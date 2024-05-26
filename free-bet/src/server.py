@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import json
 from fastapi.middleware.cors import CORSMiddleware
 from datetime import datetime
-from database import addMatch, matchesInit, getMatches
+from database import addMatch, matchesInit, getMatches, getDisposals
 
 app = FastAPI()
 
@@ -37,3 +37,7 @@ def scrape():
 @app.get('/odds')
 async def getTeamOdds():
   return getMatches()
+
+@app.get('/disposals/')
+async def getTeamOdds(id: int):
+  return getDisposals()
