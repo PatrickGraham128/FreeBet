@@ -82,3 +82,38 @@ def getDisposals():
     """):
     returnObj.append(row)
   return returnObj
+
+def goalsInit():
+  cur.execute("""
+    DROP TABLE IF EXISTS goals
+  """)
+  cur.execute("""
+    CREATE TABLE goals (
+      mid INTEGER NOT NULL,
+      player,
+      over_15,
+      over_20,
+      over_25,
+      over_30,
+      over_35,
+      over_40
+  )""")
+
+  conn.commit()
+
+def addGoals(id, player, over_1, over_2, over_3, over_4, over_5, over_6):
+  goals = (id, player, over_1, over_2, over_3, over_4, over_5, over_6)
+  cur.execute("INSERT OR REPLACE INTO goals VALUES (?,?,?,?,?,?,?,?)", goals)
+  conn.commit()
+
+def getGoals():
+  returnObj = []
+  for row in cur.execute("""
+      SELECT * from goals
+      order by over_6, 
+      over_5, over_4,
+      over_3, over_2,
+      over_1
+    """):
+    returnObj.append(row)
+  return returnObj

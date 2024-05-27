@@ -5,14 +5,22 @@ import { Navbar } from './Navbar';
 
 export const MatchPage = () => {
   const [disposals, setDisposals] = useState([]);
+  const [goals, setGoals] = useState([]);
 
   const fetchDisposals = async () => {
-    return api.get('/disposals/?id=8250389')
+    return api.get(`/disposals/?id=${mid}`)
+  }
+
+  const fetchGoals = async () => {
+    return api.get(`/goals/?id=${mid}`)
   }
 
   useEffect(() => {
     fetchDisposals().then(res => {
       setDisposals(res.data)
+    })
+    fetchGoals().then(res => {
+      setGoals(res.data)
     })
   }, []);
 
