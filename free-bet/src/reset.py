@@ -1,5 +1,6 @@
-from database import matchesInit, disposalsInit
+from database import matchesInit, disposalsInit, goalsInit
 import sqlite3
 
 matchesInit()
 disposalsInit()
+goalsInit()

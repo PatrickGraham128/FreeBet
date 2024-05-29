@@ -55,7 +55,7 @@ def disposalsInit():
   cur.execute("""
     CREATE TABLE disposals (
       mid INTEGER NOT NULL,
-      player,
+      player PRIMARY KEY,
       over_15,
       over_20,
       over_25,
@@ -71,15 +71,16 @@ def addDisposals(id, player, over_15, over_20, over_25, over_30, over_35, over_4
   cur.execute("INSERT OR REPLACE INTO disposals VALUES (?,?,?,?,?,?,?,?)", disposals)
   conn.commit()
 
-def getDisposals():
+def getDisposals(id):
   returnObj = []
   for row in cur.execute("""
       SELECT * from disposals
+      WHERE mid = ?
       order by over_40, 
       over_35, over_30,
       over_25, over_20,
       over_15
-    """):
+    """, (id,)):
     returnObj.append(row)
   return returnObj
 
@@ -90,13 +91,13 @@ def goalsInit():
   cur.execute("""
     CREATE TABLE goals (
       mid INTEGER NOT NULL,
-      player,
-      over_15,
-      over_20,
-      over_25,
-      over_30,
-      over_35,
-      over_40
+      player PRIMARY KEY,
+      over_1,
+      over_2,
+      over_3,
+      over_4,
+      over_5,
+      over_6
   )""")
 
   conn.commit()
@@ -106,14 +107,15 @@ def addGoals(id, player, over_1, over_2, over_3, over_4, over_5, over_6):
   cur.execute("INSERT OR REPLACE INTO goals VALUES (?,?,?,?,?,?,?,?)", goals)
   conn.commit()
 
-def getGoals():
+def getGoals(id):
   returnObj = []
   for row in cur.execute("""
       SELECT * from goals
+      WHERE mid = ?
       order by over_6, 
       over_5, over_4,
       over_3, over_2,
       over_1
-    """):
+    """, (id,)):
     returnObj.append(row)
   return returnObj

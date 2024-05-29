@@ -5,6 +5,7 @@ html, body {
 
 .page {
   padding-top: 80px;
+  display: flex;
 }
 
 .games {
@@ -89,5 +90,5 @@ html, body {
 }
 
 .player-name {
-  width: 150px;
+  width: 200px;
 }
