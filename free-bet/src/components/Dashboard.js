@@ -5,13 +5,12 @@ import { Navbar } from './Navbar';
 
 export const Dashboard = () => {
   const [matches, setMatches] = useState([])
-  const startSlip = {
-    matches: {}
+  if (!localStorage.getItem('slip')) {
+    localStorage.setItem('slip', JSON.stringify([]))
   }
-  localStorage.setItem('slip', startSlip)
 
   const fetchInfo = async () => {
-    return api.get('/odds')
+    return api.get(`/odds/?time=${(new Date(Date.now())).toISOString().replace("T", " ").substring(0, 19)}`)
   }
 
   const fetchDisposals = async () => {

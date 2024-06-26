@@ -5,7 +5,6 @@ html, body {
 
 .page {
   padding-top: 80px;
-  display: flex;
 }
 
 .games {
@@ -27,7 +26,6 @@ html, body {
   border: none;
   border-radius: 3px;
   background-color: rgb(224, 224, 224);
-  font-weight: bold;
   width: 50px;
 }
 
@@ -66,17 +64,15 @@ html, body {
   margin: 20px 20px;
 }
 
+.site-logo:hover {
+  cursor: pointer;
+}
+
 .slip {
   background-color: #FAD701;
   height: 30px;
   width: 50px;
   margin: 25px 20px;
-}
-
-.player-card-container {
-  display: flex;
-  justify-content: space-between;
-  font-weight: bold;
 }
 
 .players {
@@ -91,4 +87,36 @@ html, body {
 
 .player-name {
   width: 200px;
+}
+
+.clicked {
+  background-color: #0067AB;
+  color: white;
+}
+
+.clicked:hover {
+  background-color: #014673;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+.button-container {
+  margin: auto;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-button {
+  width: 100px;
+  height: 30px;
+}
+
+.table-head {
+  font-weight: bold;
 }

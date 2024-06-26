@@ -1,19 +1,44 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom'
+import React from 'react';
+import { BetButton } from './BetButton';
 
-export const PlayerCard = ({playerOdds}) => {
+export const PlayerCard = ({playerOdds, type}) => {
   const playerName = playerOdds[1]
 
-
   return (
-    <div className='player-card-container'>
-      <div className='player-name'>{playerName}</div>
-      <button className='bet-button'>{playerOdds[2] == 'NULL' ? 'N/A' : playerOdds[2]}</button>
-      <button className='bet-button'>{playerOdds[3] == 'NULL' ? 'N/A' : playerOdds[3]}</button>
-      <button className='bet-button'>{playerOdds[4] == 'NULL' ? 'N/A' : playerOdds[4]}</button>
-      <button className='bet-button'>{playerOdds[5] == 'NULL' ? 'N/A' : playerOdds[5]}</button>
-      <button className='bet-button'>{playerOdds[6] == 'NULL' ? 'N/A' : playerOdds[6]}</button>
-      <button className='bet-button'>{playerOdds[7] == 'NULL' ? 'N/A' : playerOdds[7]}</button>
-    </div>
+    <tr>
+        <td>
+        <div className='player-name'>{playerName}</div>
+        </td>
+        <td>
+        <BetButton 
+            odds={playerOdds[2]}
+            betId={playerName + type + '1'} />
+        </td>
+        <td>
+        <BetButton 
+            odds={playerOdds[3]}
+            betId={playerName + type + '2'} />
+        </td>
+        <td>
+        <BetButton 
+            odds={playerOdds[4]}
+            betId={playerName + type + '3'} />
+        </td>
+        <td>
+        <BetButton 
+            odds={playerOdds[5]}
+            betId={playerName + type + '4'} />
+        </td>
+        <td>
+        <BetButton 
+            odds={playerOdds[6]}
+            betId={playerName + type + '5'} />
+        </td>
+        <td>
+        <BetButton 
+            odds={playerOdds[7]}
+            betId={playerName + type + '6'} />
+        </td>
+    </tr>
   )
 }

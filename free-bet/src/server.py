@@ -15,9 +15,9 @@ app.add_middleware(
   allow_origins=origins,
 )
 
-@app.get('/odds')
-async def getTeamOdds():
-  return getMatches()
+@app.get('/odds/')
+async def getTeamOdds(time: str):
+  return getMatches(time)
 
 @app.get('/disposals/')
 async def getDisposalOdds(id: int):

@@ -42,10 +42,12 @@ def addMatch(id, p1, p2, p1_odds, p2_odds, time):
   cur.execute("INSERT OR REPLACE INTO matches VALUES (?,?,?,?,?,?)", match)
   conn.commit()
 
-def getMatches():
+def getMatches(time):
   returnObj = {'matches': []}
-  for row in cur.execute("SELECT * from matches order by time"):
+  for row in cur.execute("SELECT * from matches where time > ? order by time", (time, )):
     returnObj['matches'].append({'matchId': row[0], row[1]: row[3], row[2]: row[4], 'time': row[5]})
+  print(time)
+  print([x['time'] for x in returnObj['matches']])
   return returnObj
 
 def disposalsInit():
