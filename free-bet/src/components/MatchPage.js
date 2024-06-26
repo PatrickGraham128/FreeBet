@@ -45,7 +45,7 @@ export const MatchPage = () => {
         <TabButton handleClick={handleClick} label={"Goals"} active={b2active}/>
       </div>
       <div className={(tab) ? 'players' : 'hidden'}>
-          {'Disposal Markets'} 
+          <h3 style={{marginBottom: '10px'}}>{'Disposal Markets'}</h3>
           <table className='odds-table'>
             <tr>
               <td className='table-head'>Player</td>
@@ -62,7 +62,7 @@ export const MatchPage = () => {
           </table>
       </div>
       <div className={(!tab) ? 'players' : 'hidden'}>
-          {'Goal Markets'}
+           <h3 style={{marginBottom: '10px'}}>{'Goal Markets'}</h3>
           <table className='odds-table'>
           <tr>
             <td className='table-head'>Player</td>

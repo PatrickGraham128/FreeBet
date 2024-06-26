@@ -64,7 +64,7 @@ html, body {
   margin: 20px 20px;
 }
 
-.site-logo:hover {
+.site-logo:hover, .match-card-container:hover {
   cursor: pointer;
 }
 
@@ -105,6 +105,7 @@ html, body {
 
 .button-container {
   margin: auto;
+  margin-top: 20px;
 }
 
 .content-container {
@@ -119,4 +120,8 @@ html, body {
 
 .table-head {
   font-weight: bold;
+}
+
+td {
+  padding-bottom: 5px;
 }
