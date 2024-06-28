@@ -121,3 +121,7 @@ def getGoals(id):
     """, (id,)):
     returnObj.append(row)
   return returnObj
+
+def getMatchInfo(mid):
+  for row in cur.execute("SELECT * from matches where mid = ?", (mid, )):
+    return row

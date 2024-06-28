@@ -8,6 +8,6 @@ export const Navbar = () => {
     <div className="site-logo"
       onClick={() => navigate("/")}
     >Free<b>Bet</b></div>
-    <button class="bet-button slip">Slip</button>
+    <button class="bet-button slip" onClick={() => navigate("/slip")}>Slip</button>
   </div>)
 }

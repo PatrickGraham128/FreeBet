@@ -6,7 +6,7 @@ import { Navbar } from './Navbar';
 export const Dashboard = () => {
   const [matches, setMatches] = useState([])
   if (!localStorage.getItem('slip')) {
-    localStorage.setItem('slip', JSON.stringify([]))
+    localStorage.setItem('slip', JSON.stringify({}))
   }
 
   const fetchInfo = async () => {

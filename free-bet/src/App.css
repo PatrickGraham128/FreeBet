@@ -40,6 +40,19 @@ html, body {
   width: 25px;
 }
 
+.logo-big {
+  background-size: contain;
+  height: 50px;
+  width: 50px;
+}
+
+.match-page-head {
+  margin: auto;
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
 .team-name {
   font-weight: bold;
   font-size: 0.95em;
@@ -124,4 +137,35 @@ html, body {
 
 td {
   padding-bottom: 5px;
+}
+
+.leg-slip {
+  margin-left: 20px;
+}
+
+.slip-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 400px;
+  margin: auto;
+}
+
+.match-slip-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 400px;
+  padding: 15px;
+  margin: auto;
+}
+
+.match-slip-head{
+  height: 50px;
+  display: flex
+}
+
+.h2h-winner {
+  font-weight: bold;
+  margin: 5px 10px
 }

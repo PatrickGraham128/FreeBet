@@ -4,14 +4,20 @@ import api from './api';
 import { PlayerCard } from './PlayerCard';
 import { Navbar } from './Navbar';
 import { TabButton } from './TabButton';
+import * as logos from "./logos.json";
 
 export const MatchPage = () => {
   const { id } = useParams();
+  const [info, setInfo] = useState([]);
   const [disposals, setDisposals] = useState([]);
   const [goals, setGoals] = useState([]);
   const [tab, setTab] = useState(true);
   const [b1active, setB1Active] = useState(true)
   const [b2active, setB2Active] = useState(false)
+
+  const fetchInfo = async () => {
+    return api.get(`/info/?id=${id}`)
+  }
 
   const fetchDisposals = async () => {
     return api.get(`/disposals/?id=${id}`)
@@ -22,6 +28,9 @@ export const MatchPage = () => {
   }
 
   useEffect(() => {
+    fetchInfo().then(res => {
+      setInfo(res.data)
+    })   
     fetchDisposals().then(res => {
       setDisposals(res.data)
     })   
@@ -40,6 +49,10 @@ export const MatchPage = () => {
   <Navbar />
   <div className='page'>
     <div className='content-container'>
+      <div className='match-page-head'>
+        <div className='logo-big' style={{backgroundImage: logos[info[1]]}} />
+        <div className='logo-big' style={{backgroundImage: logos[info[2]]}} />
+      </div>
       <div className='button-container'>
         <TabButton handleClick={handleClick} label={"Disposals"} active={b1active}/>
         <TabButton handleClick={handleClick} label={"Goals"} active={b2active}/>
@@ -57,7 +70,7 @@ export const MatchPage = () => {
               <td className='table-head'>40+</td>
             </tr>
           {
-            disposals.map((d, i) => <PlayerCard playerOdds={d} type={'d'} />)
+            disposals.map((d, i) => <PlayerCard match={id} playerOdds={d} type={'d'} />)
           }
           </table>
       </div>
@@ -74,7 +87,7 @@ export const MatchPage = () => {
             <td className='table-head'>6+</td>
           </tr>
           {
-            goals.map((d, i) => <PlayerCard playerOdds={d} type={'g'} />)
+            goals.map((d, i) => <PlayerCard match={id} playerOdds={d} type={'g'} />)
           }
           </table>
       </div>
