@@ -5,7 +5,7 @@ import * as logos from "./logos.json";
 
 export const MatchCard = ({match}) => {
   const navigate = useNavigate();
-  const slip = JSON.parse(localStorage.getItem('slip'))[match[0]];
+  const slip = localStorage.getItem('slip')[match[0]];
   let currBet = (slip) ? slip[match[0]]["h2h"] : "";
 
   const team1 = Object.keys(match)[1];

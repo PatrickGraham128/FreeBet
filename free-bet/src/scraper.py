@@ -25,7 +25,7 @@ def scrapeh2h():
     odds = card.find_all('span', class_='size14_f7opyze bold_f1au7gae priceTextSize_frw9zm9')
     p1_odds = odds[0].contents[0]
     p2_odds = odds[1].contents[0]
-    time = card.find('span', class_='size11_fwt0xu4 Nevada_fxjpoyk oneLine_f15ay66x').contents[0]
+    time = card.find('time').contents[0]
     time = datetime.strptime(time.split(', ')[1] + ' 2024', '%d %b %H:%M %Y')
     matches.append((id, p1, p2, p1_odds, p2_odds, time))
     addMatch(id, p1, p2, p1_odds, p2_odds, time)
@@ -45,7 +45,10 @@ def scrapeDisposals(id, team1, team2):
 
   cards = driver.find_elements(By.CSS_SELECTOR, "div[data-automation-id^='player-row']")
   for card in cards[::2]:
-    odds = [float(x.text) for x in card.find_elements(By.CSS_SELECTOR, "span[data-automation-id='price-text']")]
+    odds = [x.text for x in card.find_elements(By.CSS_SELECTOR, "span[data-automation-id='price-text']")]
+    for odd in odds:
+      if odds != '':
+        odd = float(odd)
     try:
       card.find_element(By.CSS_SELECTOR, "div[class='incrementContainer_fdtz7hq']").find_element(By.CSS_SELECTOR, "div[class='naPriceButton_fnyy064']")
       [odds.insert(0, "NULL") for x in card.find_elements(By.CSS_SELECTOR, "div[class='naPriceButton_fnyy064']")]
