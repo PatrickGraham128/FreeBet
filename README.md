@@ -15,3 +15,11 @@ You may also see any lint errors in the console.
 To run the backend, navigate to the src directory in a new terminal and run
 
 ### `uvicorn server:app`
+
+To scrape necessary data from sportsbet, run:
+
+### `python3 scraper.py`
+
+To reset the datastore:
+
+### `python3 reset.py`
